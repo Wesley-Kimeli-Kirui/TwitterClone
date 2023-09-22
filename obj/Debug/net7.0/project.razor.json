@@ -46,43 +46,6 @@
         }
       },
       {
-        "HashCode": 1381996869,
-        "Kind": "Components.Component",
-        "Name": "TwitterClone.Pages.Index",
-        "AssemblyName": "TwitterClone",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Index"
-          }
-        ],
-        "Metadata": {
-          "Common.TypeName": "TwitterClone.Pages.Index",
-          "Common.TypeNameIdentifier": "Index",
-          "Common.TypeNamespace": "TwitterClone.Pages",
-          "Runtime.Name": "Components.IComponent"
-        }
-      },
-      {
-        "HashCode": 1798517286,
-        "Kind": "Components.Component",
-        "Name": "TwitterClone.Pages.Index",
-        "AssemblyName": "TwitterClone",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "TwitterClone.Pages.Index"
-          }
-        ],
-        "Metadata": {
-          "Common.TypeName": "TwitterClone.Pages.Index",
-          "Common.TypeNameIdentifier": "Index",
-          "Common.TypeNamespace": "TwitterClone.Pages",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch",
-          "Runtime.Name": "Components.IComponent"
-        }
-      },
-      {
         "HashCode": -515612488,
         "Kind": "Components.Component",
         "Name": "TwitterClone.Shared.SurveyPrompt",
@@ -280,6 +243,43 @@
           "Common.TypeName": "TwitterClone.Shared.NavMenu",
           "Common.TypeNameIdentifier": "NavMenu",
           "Common.TypeNamespace": "TwitterClone.Shared",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch",
+          "Runtime.Name": "Components.IComponent"
+        }
+      },
+      {
+        "HashCode": 1381996869,
+        "Kind": "Components.Component",
+        "Name": "TwitterClone.Pages.Index",
+        "AssemblyName": "TwitterClone",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Index"
+          }
+        ],
+        "Metadata": {
+          "Common.TypeName": "TwitterClone.Pages.Index",
+          "Common.TypeNameIdentifier": "Index",
+          "Common.TypeNamespace": "TwitterClone.Pages",
+          "Runtime.Name": "Components.IComponent"
+        }
+      },
+      {
+        "HashCode": 1798517286,
+        "Kind": "Components.Component",
+        "Name": "TwitterClone.Pages.Index",
+        "AssemblyName": "TwitterClone",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "TwitterClone.Pages.Index"
+          }
+        ],
+        "Metadata": {
+          "Common.TypeName": "TwitterClone.Pages.Index",
+          "Common.TypeNameIdentifier": "Index",
+          "Common.TypeNamespace": "TwitterClone.Pages",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch",
           "Runtime.Name": "Components.IComponent"
         }
