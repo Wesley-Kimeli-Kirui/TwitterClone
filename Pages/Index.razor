@@ -1,0 +1,22 @@
+﻿@page "/"
+@inject IPost postService
+
+<div>
+    @foreach (var item in items)
+    {
+        <div>
+            <p>title: @item.title</p>
+            <p>body: @item.body</p>
+        </div>
+    }
+</div>
+
+@code{
+    private List<UserPosts> items = new List<UserPosts>();
+
+
+        protected override async Task OnInitializedAsync()
+        {
+            items = await postService.GetPosts();
+        }
+}
