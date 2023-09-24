@@ -1,4 +1,76 @@
-﻿@page "/"
+﻿@page "/user/{userId}"
+
+@inject IUser userService
+@inject IPost postService
+@inject IComment commentService
+
+<div class="user-posts">
+    <div class="user-info">
+        @if (users != null)
+        {
+            <div class="user-avatar">
+                <img src="@users.ProfileImageUrl" alt="@users.username" />
+            </div>
+            <div class="user-details">
+                <h4>@users.name</h4>
+                <p>@users.email</p>
+            </div>
+        }
+    </div>
+
+    <h3>User Posts</h3>
+
+    @if (items != null && items.Any())
+    {
+        @foreach (var post in items)
+        {
+            <div class="post">
+                <div class="post-header">
+                    <div class="post-avatar">
+                        <img src="@post.User.ProfileImageUrl" alt="@post.User.username" />
+                    </div>
+                    <div class="post-details">
+                        <h5>@post.User.username</h5>
+                        <p>@post.PostedDate.ToShortDateString()</p>
+                    </div>
+                </div>
+                <div class="post-content">
+                    <p>@post.Content</p>
+                </div>
+
+                @if (post.comments != null && post.comments.Any())
+                {
+                    <h5>Comments:</h5>
+                    <ul class="comments-list">
+                        @foreach (var comment in post.comments)
+                        {
+                            <li>@comments.body</li>
+                        }
+                    </ul>
+                }
+            </div>
+        }
+    }
+    else
+    {
+        <p>No posts found for this user.</p>
+    }
+</div>
+
+@code {
+    private List<Users> users = new List<Users>();
+    private List<UserPosts> items = new List<UserPosts>();
+    private List<UserComments> comments = new List<UserComments>();
+        protected override async Task OnInitializedAsync()
+        {
+            users = await commentService.GetUsers();
+            items = await postService.GetPosts();
+            comments = await commentService.GetComments();
+        }
+}
+
+
+@* @page "/"
 @inject IPost postService
 
 <div>
@@ -19,4 +91,5 @@
         {
             items = await postService.GetPosts();
         }
-}
+} *@
+
