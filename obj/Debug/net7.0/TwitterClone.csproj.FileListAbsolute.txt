@@ -817,8 +817,6 @@ C:\Users\Wesley\TwitterClone\obj\Debug\net7.0\staticwebassets\msbuild.buildTrans
 C:\Users\Wesley\TwitterClone\obj\Debug\net7.0\staticwebassets.pack.json
 C:\Users\Wesley\TwitterClone\obj\Debug\net7.0\staticwebassets.build.json
 C:\Users\Wesley\TwitterClone\obj\Debug\net7.0\staticwebassets.development.json
-C:\Users\Wesley\TwitterClone\obj\Debug\net7.0\scopedcss\Shared\MainLayout.razor.rz.scp.css
-C:\Users\Wesley\TwitterClone\obj\Debug\net7.0\scopedcss\Shared\NavMenu.razor.rz.scp.css
 C:\Users\Wesley\TwitterClone\obj\Debug\net7.0\scopedcss\bundle\TwitterClone.styles.css
 C:\Users\Wesley\TwitterClone\obj\Debug\net7.0\scopedcss\projectbundle\TwitterClone.bundle.scp.css
 C:\Users\Wesley\TwitterClone\obj\Debug\net7.0\TwitterClone.csproj.CopyComplete
@@ -830,3 +828,5 @@ C:\Users\Wesley\TwitterClone\bin\Debug\net7.0\wwwroot\_framework\Newtonsoft.Json
 C:\Users\Wesley\TwitterClone\bin\Debug\net7.0\wwwroot\_framework\Newtonsoft.Json.dll.gz
 C:\Users\Wesley\TwitterClone\bin\Debug\net7.0\Newtonsoft.Json.dll
 C:\Users\Wesley\TwitterClone\obj\Debug\net7.0\build-gz\iPVbfsPT.gz
+C:\Users\Wesley\TwitterClone\obj\Debug\net7.0\scopedcss\Shared\MainLayout.razor.rz.scp.css
+C:\Users\Wesley\TwitterClone\obj\Debug\net7.0\scopedcss\Pages\Index.razor.rz.scp.css

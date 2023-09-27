@@ -1,95 +1,97 @@
-﻿@page "/user/{userId}"
+﻿@page "/"
 
 @inject IUser userService
 @inject IPost postService
 @inject IComment commentService
+@using TwitterClone.Models
 
-<div class="user-posts">
-    <div class="user-info">
-        @if (users != null)
-        {
-            <div class="user-avatar">
-                <img src="@users.ProfileImageUrl" alt="@users.username" />
-            </div>
-            <div class="user-details">
-                <h4>@users.name</h4>
-                <p>@users.email</p>
-            </div>
-        }
-    </div>
 
-    <h3>User Posts</h3>
+ 
+ <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
-    @if (items != null && items.Any())
-    {
-        @foreach (var post in items)
-        {
-            <div class="post">
-                <div class="post-header">
-                    <div class="post-avatar">
-                        <img src="@post.User.ProfileImageUrl" alt="@post.User.username" />
-                    </div>
-                    <div class="post-details">
-                        <h5>@post.User.username</h5>
-                        <p>@post.PostedDate.ToShortDateString()</p>
-                    </div>
-                </div>
-                <div class="post-content">
-                    <p>@post.Content</p>
-                </div>
 
-                @if (post.comments != null && post.comments.Any())
+
+ <div class="col-6"> @*tweet-wrap *@
+  <div class="tweet-header">
+    <img src="https://pbs.twimg.com/profile_images/1012717264108318722/9lP-d2yM_400x400.jpg" alt="" class="avator">
+        <div class="tweet-header-info">
+            <select @onchange="HandleChangeUser">
+                <option value="">
+                    Select User 
+                </option> <span> </span>
+
+                    @foreach (var user in users)
+                    {
+                        <option value="@user.id">@user.name</option>
+                    }
+                    
+            </select>
+
+                @if (selectedUserId != null)
                 {
-                    <h5>Comments:</h5>
-                    <ul class="comments-list">
-                        @foreach (var comment in post.comments)
-                        {
-                            <li>@comments.body</li>
-                        }
-                    </ul>
+                    var selectedUser = users.FirstOrDefault(u => u.id == selectedUserId);
+                    if (selectedUser != null)
+                    {
+                        <div>
+                            <h2>@selectedUser.name</h2>
+                            <p>@selectedUser.username</p>
+                        </div>
+                        
+                    }
                 }
-            </div>
-        }
-    }
-    else
-    {
-        <p>No posts found for this user.</p>
-    }
+
+                @foreach (var post in posts)
+                {
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <img class="w-100" src="https://cdn.pixabay.com/photo/2018/10/29/21/46/dog-3782188_1280.jpg">
+                            </div>
+                            <div class="col-sm-8">
+                                <p>@post.PostedDate</p>
+                                <h3>@post.title</h3>
+                                <p>@post.body</p>
+                                <button>Comments</button>
+                            </div>
+                        <div>
+
+                        </div>
+                    </div>
+                }
+      
+    
+  </div>    
+           </div>
+
 </div>
+
 
 @code {
     private List<Users> users = new List<Users>();
-    private List<UserPosts> items = new List<UserPosts>();
-    private List<UserComments> comments = new List<UserComments>();
+    private List<UserPosts> posts = new List<UserPosts>();
+    private int? selectedUserId;
+
+        private List<UserComments> comments = new List<UserComments>();
+        private Users selectedUser => users.FirstOrDefault(u => u.id == selectedUserId);
         protected override async Task OnInitializedAsync()
         {
-            users = await commentService.GetUsers();
-            items = await postService.GetPosts();
+            users = await userService.GetUsers();
+            posts = await postService.GetPosts();
+            //@foreach(var user in users){
+             // var  posts = await postService.GetPosts(); 
+        //}
+            
             comments = await commentService.GetComments();
         }
+        private void HandleChangeUser(ChangeEventArgs e)
+            {
+                if (int.TryParse(e.Value?.ToString(), out int userId))
+                {
+                    selectedUserId = userId;
+                }
+                else
+                {
+                    selectedUserId = null;
+                }
+            }
 }
-
-
-@* @page "/"
-@inject IPost postService
-
-<div>
-    @foreach (var item in items)
-    {
-        <div>
-            <p>title: @item.title</p>
-            <p>body: @item.body</p>
-        </div>
-    }
-</div>
-
-@code{
-    private List<UserPosts> items = new List<UserPosts>();
-
-
-        protected override async Task OnInitializedAsync()
-        {
-            items = await postService.GetPosts();
-        }
-} *@
-
